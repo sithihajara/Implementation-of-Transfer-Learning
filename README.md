@@ -7,7 +7,7 @@ The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6
 The dataset is divided into five training batches and one test batch, each with 10000 images. The test batch contains exactly 1000 randomly-selected images from each class. The training batches contain the remaining images in random order, but some training batches may contain more images from one class than another. Between them, the training batches contain exactly 5000 images from each class.
 
 Here are the classes in the dataset, as well as 10 random images from each:
-![Uploading image.png…]()
+![237872257-0c867e5a-02f9-4e55-b90e-0f50b649c456](https://github.com/sithihajara/Implementation-of-Transfer-Learning/assets/94219582/3b5490e5-300b-4cf7-8556-6e4198e10acd)
 
 ## DESIGN STEPS
 ### STEP 1:
@@ -111,10 +111,9 @@ print(classification_report(y_test,x_test_predictions))
 
 ## OUTPUT
 ### Training Loss, Validation Loss Vs Iteration Plot
-Include your plot here
-</br>
-</br>
-</br>
+Training Loss, Validation Loss Vs Iteration             | Accuracy, Validation Accuracy Vs Iteration                   |               
+:------------------------------------------------------:| :-----------------------------------------------------------:|
+| | |
 ### Classification Report
 ![237873023-d0c88564-2cf8-4d8e-98af-ba12816aa196](https://github.com/sithihajara/Implementation-of-Transfer-Learning/assets/94219582/3bc248fe-247c-4432-955f-f5c53604751e)
 <img width="425" alt="237873045-ec522142-6e6e-4506-95e5-538ce8a1c574" src="https://github.com/sithihajara/Implementation-of-Transfer-Learning/assets/94219582/8f708202-672a-432a-9f5c-5654a3657c04">
