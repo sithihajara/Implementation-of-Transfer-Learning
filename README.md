@@ -35,12 +35,12 @@ Compile and fit the model
 Predict for custom inputs using this model
 
 ## PROGRAM
-
-Developed by : Vidya Neela M
-Reg no : 212221230120
-
-Libraries
-
+```
+Developed by : Sithi Hajara I
+Reg no : 212221230102
+```
+### Libraries
+```
 import pandas as pd
 import numpy as np
 import tensorflow as tf
@@ -82,7 +82,7 @@ metrics[['loss','val_loss']].plot()
 
 metrics[['accuracy','val_accuracy']].plot()
 
-
+```
 
 ## OUTPUT
 ### Training Loss, Validation Loss Vs Iteration Plot:
