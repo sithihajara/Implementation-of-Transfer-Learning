@@ -39,10 +39,8 @@ Predict for custom inputs using this model
 Developed by : Sithi Hajara I
 Reg no : 212221230102
 ```
-### Libraries
+
 ```
-import pandas as pd
-import numpy as np
 import tensorflow as tf
 from tensorflow.keras.datasets import cifar10
 from tensorflow.keras.applications import VGG19
@@ -53,20 +51,24 @@ from tensorflow.keras.callbacks import ReduceLROnPlateau
 
 (x_train,y_train),(x_test,y_test)=cifar10.load_data()
 
-tx_train = x_train.astype('float32') / 255.0
+x_train = x_train.astype('float32') / 255.0
 x_test = x_test.astype('float32') / 255.0
 
-base_model = VGG19(include_top = False,weights='imagenet', input_shape=(32,32,3))
+base_model=VGG19(
+    include_top=False,
+    weights='imagenet',
+    input_shape=(32,32,3)
+)
 
 for layer in base_model.layers:
   layer.trainable = False
-  
+
 model=Sequential()
 model.add(base_model)
 model.add(Flatten())
-model.add(Dense(512,activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(10,activation='softmax'))
+model.add(Dense(256,activation=('relu')))
+model.add(Dropout(.5))
+model.add(Dense(10,activation=('softmax')))
 
 model.summary()
 
@@ -76,11 +78,18 @@ learning_rate_reduction = ReduceLROnPlateau(monitor='val_accuracy', patience=3, 
 
 model.fit(x_train, y_train, batch_size=64, epochs=50, validation_data=(x_test, y_test), callbacks=[learning_rate_reduction])
 
+import pandas as pd
 metrics = pd.DataFrame(model.history.history)
 
 metrics[['loss','val_loss']].plot()
-
 metrics[['accuracy','val_accuracy']].plot()
+
+import numpy as np
+from sklearn.metrics import confusion_matrix, classification_report
+x_test_predictions = np.argmax(model.predict(x_test), axis=1)
+
+print(confusion_matrix(y_test,x_test_predictions))
+print(classification_report(y_test,x_test_predictions))
 
 ```
 
@@ -99,6 +108,11 @@ Training Loss, Validation Loss Vs Iteration             | Accuracy, Validation A
 
 ![download](https://github.com/vidyaneela/Implementation-of-Transfer-Learning/assets/94169318/0b7f8157-055a-4cae-9311-679e6a62a16f)
 
+### Classification Report
+![c1](https://github.com/sithihajara/Implementation-of-Transfer-Learning/assets/94219582/1d96e20b-f20d-44aa-bf18-33776fdd501f)
+
+### Confusion Matrix
+![c2](https://github.com/sithihajara/Implementation-of-Transfer-Learning/assets/94219582/aaa36f33-0a76-4a09-b422-6ec5919fceff)
 
 ## RESULT:
 Thus, transfer Learning for CIFAR-10 dataset classification using VGG-19 architecture is successfully implemented.
