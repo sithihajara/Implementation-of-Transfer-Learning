@@ -96,10 +96,6 @@ print(classification_report(y_test,x_test_predictions))
 ## OUTPUT
 ### Training Loss, Validation Loss Vs Iteration Plot:
 
-Training Loss, Validation Loss Vs Iteration             | Accuracy, Validation Accuracy Vs Iteration                   |               
-:------------------------------------------------------:| :-----------------------------------------------------------:|
-| | |
-
 ### Classification Report
 ![download](https://github.com/vidyaneela/Implementation-of-Transfer-Learning/assets/94169318/9fd174bf-f662-4320-8e63-55b8fab65395)
 
